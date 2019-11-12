@@ -3,5 +3,11 @@
 #header {
     height: 80px;
     width: 100%;
-    background: green;
+    background-image: linear-gradient(to bottom, $primary-color-dark, $primary-color-light)
+}
+
+#system-name {
+    color: white;
+    font-size: 2.5rem;
+    text-transform: uppercase;
 }

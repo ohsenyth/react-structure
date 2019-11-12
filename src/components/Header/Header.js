@@ -5,7 +5,7 @@ class Header extends React.Component {
     render() {
         return (
             <div id="header">
-                <h1>Hello World</h1>
+                <span id="system-name">Audio Transcription</span>
             </div>
         )
     }
