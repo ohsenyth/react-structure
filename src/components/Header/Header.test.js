@@ -3,10 +3,10 @@ import { shallow } from 'enzyme';
 
 import Header from './Header';
 
-describe('MyComponent', () => {
-    it('should render correctly', () => {
-      const component = shallow(<Header />);
-    
-      expect(component).toMatchSnapshot();
-    });
+describe('HeaderComponent', () => {
+  it('should render correctly', () => {
+    const component = shallow(<Header />);
+  
+    expect(component).toMatchSnapshot();
   });
+});

@@ -6,15 +6,12 @@ import Header from './components/Header/Header';
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <h1>Sample</h1>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div id="container">
+        <Header></Header>
+        <div id="content" className="App-content">
         
-      </header> */}
-
-      <Header></Header>
+        </div>
+      </div> 
     </div>
   );
 }
