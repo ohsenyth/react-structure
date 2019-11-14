@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+
 }
 
 .App-logo {
@@ -24,4 +24,9 @@
 .App-content {
   width: 90%;
   margin: 0 auto;
+  padding-top: 5rem;
+}
+
+h1 {
+  color: #585858;
 }
