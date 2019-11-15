@@ -24,9 +24,10 @@
 .App-content {
   width: 90%;
   margin: 0 auto;
-  padding-top: 5rem;
+  padding-top: 3rem;
 }
 
 h1 {
   color: #585858;
+  font-size: 1.6rem;
 }

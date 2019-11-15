@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProjectList.scss';
 import Search from './Search/ProjectSearch';
+import List from '../../List/List';
 
 export default function ProjectList() {
     return (
@@ -9,6 +10,7 @@ export default function ProjectList() {
                 <h1>Project List</h1>
                 <Search></Search>
             </div>
+            <List></List>
         </div>
     )
 }
