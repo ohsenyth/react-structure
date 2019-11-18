@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -33,23 +33,23 @@ const columns = [
   },
 ];
 
-function createData(name, code, population, size) {
-  const density = population / size;
-  return { name, code, population, size, density };
-}
+// function createData(name, code, population, size) {
+//   const density = population / size;
+//   return { name, code, population, size, density };
+// }
 
-const rows = [
-  createData('Project A', 'This is a description', '2019/10/15 15:00',),
-  createData('Project B', 'Description B', '2019/10/16 12:00'),
-  createData('Project A', 'This is a description', '2019/10/15 15:00'),
-  createData('Project B', 'Description B', '2019/10/16 12:00'),
-  createData('Project A', 'This is a description', '2019/10/15 15:00'),
-  createData('Project B', 'Description B', '2019/10/16 12:00'),
-  createData('Project A', 'This is a description', '2019/10/15 15:00'),
-  createData('Project B', 'Description B', '2019/10/16 12:00'),
-  createData('Project A', 'This is a description', '2019/10/15 15:00'),
-  createData('Project B', 'Description B', '2019/10/16 12:00'),
-];
+// const rows = [
+//   createData('Project A', 'This is a description', '2019/10/15 15:00',),
+//   createData('Project B', 'Description B', '2019/10/16 12:00'),
+//   createData('Project A', 'This is a description', '2019/10/15 15:00'),
+//   createData('Project B', 'Description B', '2019/10/16 12:00'),
+//   createData('Project A', 'This is a description', '2019/10/15 15:00'),
+//   createData('Project B', 'Description B', '2019/10/16 12:00'),
+//   createData('Project A', 'This is a description', '2019/10/15 15:00'),
+//   createData('Project B', 'Description B', '2019/10/16 12:00'),
+//   createData('Project A', 'This is a description', '2019/10/15 15:00'),
+//   createData('Project B', 'Description B', '2019/10/16 12:00'),
+// ];
 
 const useStyles = makeStyles({
   root: {
@@ -62,7 +62,17 @@ const useStyles = makeStyles({
   },
 });
 
-export default function List() {
+// type Props = {
+//   foo: number,
+//   bar?: string,
+// };
+
+export default function List(props) {
+  console.log(props);
+  List.defaultProps = {
+    foo: 43,
+  };
+
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -97,7 +107,7 @@ export default function List() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => {
+            {props.items.map(row => {
               return (
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                   {columns.map(column => {
@@ -120,7 +130,7 @@ export default function List() {
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={rows.length}
+        count={props.length}
         rowsPerPage={rowsPerPage}
         page={page}
         backIconButtonProps={{
