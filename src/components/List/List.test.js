@@ -11,11 +11,11 @@ describe('List', () => {
     });
 
     it('should render a list of items as TableRow', () => {
-  const mockProducts = [
-     {name: 'From Test Project A', description: 'This is a description', createdDate: '2019/10/15 15:00'},
-                {name: 'From Test Project B', description: 'Description B', createdDate: '2019/10/15 18:00'},
-  ];
+    const mockProducts = [
+        {id: 1, name: 'From Test Project A', description: 'This is a description', createdDate: '2019/10/15 15:00'},
+        {id: 2, name: 'From Test Project B', description: 'Description B', createdDate: '2019/10/15 18:00'},
+    ];
   const wrapper = shallow(<List items={mockProducts}/>);
-  expect(wrapper.find('Paper').length).toEqual(mockProducts.length); // 3
+  expect(wrapper.find('TableCell').length).toEqual(mockProducts.length); // 3
 });
 });

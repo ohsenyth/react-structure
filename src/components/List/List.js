@@ -86,6 +86,21 @@ export default function List(props) {
     setPage(0);
   };
 
+// if (props.items) {
+//   return (
+//     <ul>
+//       {
+//         props.items.map(product => (
+//           <li key={product.id}>
+//             {product.name}
+//           </li>
+//         ))
+//       }
+//     </ul>
+//   )
+// }
+
+if (props.items) {  
   return (
     <Paper className="root">
       <div className={classes.tableWrapper}>
@@ -109,7 +124,7 @@ export default function List(props) {
           <TableBody>
             {props.items.map(row => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
                   {columns.map(column => {
                     const value = row[column.id];
                     return (
@@ -130,7 +145,7 @@ export default function List(props) {
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={props.length}
+        count={props.items.length}
         rowsPerPage={rowsPerPage}
         page={page}
         backIconButtonProps={{
@@ -144,4 +159,5 @@ export default function List(props) {
       />
     </Paper>
   );
+}
 }
