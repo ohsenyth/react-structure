@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import './ProjectList.scss';
 import Search from './Search/ProjectSearch';
 import List from '../../List/List';
+import Loading from '../../../common/Skeleton/Skeleton';
 
 class ProjectList extends Component {
     constructor(props) {
+        console.log('hello');
         super(props);
         this.state = {
             items: [
@@ -14,17 +16,20 @@ class ProjectList extends Component {
         }
     }
 
-    
+
 
   render() {
       return (
+        //   <Loading />
         <div className="container">
             <div id="heading-wrapper" className="heading-wrapper">
                 <h1>Project List</h1>
                 <Search></Search>
             </div>
             <List items={this.state.items}></List>
+        
         </div>
+
     )
   }
 
