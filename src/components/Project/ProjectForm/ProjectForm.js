@@ -5,21 +5,41 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import './ProjectForm.scss';
 
-export default function ProjectForm() {
-  const [open, setOpen] = React.useState(false);
+class ProjectForm extends React.Component {
+  // [open, setOpen] = React.useState(false);
+  state = {
+        email: '',
+    }
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  handleClickOpen = () => {
+    // setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  handleClose = () => {
+    // setOpen(false);
   };
 
-  return (
+  handleChange = (event) => {
+        const email = event.target.value;
+        this.setState({ email });
+    };
+ 
+  handleSubmit = () => {
+        // your submit logic
+    };
+
+  render() {
+    const { email } = this.state;
+    return (
     <div>
+    <ValidatorForm
+                ref="form"
+                onSubmit={this.handleSubmit}
+                onError={errors => console.log(errors)}
+            >
       {/* <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title"> */}
         <DialogTitle id="form-dialog-title">Add Project</DialogTitle>
         <DialogContent>
@@ -34,6 +54,14 @@ export default function ProjectForm() {
             type="projectName"
             fullWidth
           />
+          <TextValidator
+                    label="Email"
+                    onChange={this.handleChange}
+                    name="email"
+                    value={email}
+                    validators={['required']}
+                    errorMessages={['Project name is required.']}
+                />
           <TextField
             autoFocus
             margin="normal"
@@ -44,14 +72,18 @@ export default function ProjectForm() {
           />
         </DialogContent>
         <DialogActions className="Actions">
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={this.handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={this.handleClose} color="primary">
             Add
           </Button>
         </DialogActions>
       {/* </Dialog> */}
+      </ValidatorForm>
     </div>
   );
+  }
 }
+
+export default ProjectForm;
